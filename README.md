@@ -1,7 +1,7 @@
 
 # CLARITY: A Decentralized Protocol for Verifiable Human-Authored Content
 
-**Version 2.1: Engineering Manifesto & Technical Deep Dive**
+**Engineering Manifesto & Technical Deep Dive**
 
 ---
 
