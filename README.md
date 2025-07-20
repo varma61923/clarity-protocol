@@ -78,7 +78,7 @@ network).
 -   **Storage:** IPFS
 
 ### 4.2. Local Development
-1.  **Clone:** `git clone <repository-url>`
+1.  **Clone:** `git clone https://github.com/varma61923/clarity-protocol.git`
 2.  **Install:** `npm install`
 3.  **Configure:** Create `.env.local` and add `VITE_ETHEREUM_RPC=https://sepolia.infura.io/v3/YOUR_INFURA_KEY`
 4.  **Run:** `npm run dev`
@@ -102,7 +102,7 @@ money is required.
 ### 5.2. Running the Application
 1.  **Clone the code:**
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/varma61923/clarity-protocol.git
     cd clarity-app
     ```
 2.  **Install dependencies:**
