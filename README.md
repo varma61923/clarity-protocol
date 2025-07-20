@@ -46,16 +46,28 @@ CLARITY is a set of smart contracts and data standards that, when used together,
 -   **Future: Gasless Voting:** Integration with Snapshot will allow for off-chain, gasless voting, which will significantly reduce the friction of participating in governance.
 
 
-## 3. Engineering Roadmap & Future Work
+## 3. CURRENT STATUS: A FULLY FUNCTIONAL PROTOTYPE (TESTNET)
 
-CLARITY is an ambitious project with a long-term vision. Our roadmap is focused on enhancing the protocol's decentralization, security, and scalability.
+As of this version, CLARITY is a complete end-to-end prototype. All core features
+are implemented and functional on a blockchain testnet (a free, experimental
+network).
 
--   **Framework Migration to Next.js:** Migrating the frontend to Next.js will enable server-side rendering (SSR) and static site generation (SSG), which will improve performance and SEO. It will also allow for more robust middleware and header control, which is crucial for implementing anti-AI directives.
--   **Subgraph Indexing:** Building a subgraph with The Graph will provide a high-performance, decentralized API for querying on-chain data. This will significantly improve the user experience of the application.
--   **Zero-Knowledge (ZK) Integration:**
-    -   **zk-KYC:** We plan to integrate a ZK-based identity verification system (such as Polygon ID or Semaphore) to allow journalists to prove their identity without revealing sensitive personal information.
-    -   **zk-Donations:** A ZK-based donation system will allow for private, anonymous contributions to journalists.
--   **Security Audits:** We will conduct full, independent security audits of all smart contracts before mainnet deployment.
+**What is working right now:**
+-   [x] **On-Chain Identity:** Minting Journalist SBTs.
+-   [x] **Decentralized Publishing:** The full hash -> sign -> upload to IPFS ->
+    register on-chain flow.
+-   [x] **On-Chain Reputation:** Reputation scores are updated by the smart
+    contract.
+-   [x] **On-Chain Governance:** Proposals can be created via the DAO contract.
+-   [x] **On-Chain Subscriptions:** Users can subscribe to authors on-chain.
+
+**What is next on the roadmap for mainnet deployment:**
+-   [ ] **Framework Migration:** Move from Vite to Next.js for performance and
+    server-level controls.
+-   [ ] **Subgraph Indexing:** Build a high-speed data retrieval layer with The Graph.
+-   [ ] **ZK Integration:** Implement optional zk-KYC for enhanced verification and
+    zk-donations for privacy.
+-   [ ] **Security Audits:** Full, independent security audits of all smart contracts.
 
 ## 4. For Developers: A Contributor's Guide
 
@@ -76,10 +88,98 @@ CLARITY is an ambitious project with a long-term vision. Our roadmap is focused 
 -   **Test:** `npx hardhat test`
 -   **Deploy:** `npx hardhat run scripts/deploy.js --network sepolia`
 
-## 5. License
+## 5. HOW TO SEE IT IN ACTION: A 15-MINUTE GUIDE
 
-CLARITY is licensed under the **MIT License**. (The full license text would be included here.)
+Follow these steps to experience the full power of CLARITY on a testnet. No real
+money is required.
 
-## 6. A Call for Contributions
+### 5.1. Prerequisites
+-   **MetaMask:** Install the MetaMask browser extension.
+-   **Sepolia Testnet ETH:** Inside MetaMask, switch the network from "Ethereum
+    Mainnet" to "Sepolia". Get free test ETH from a faucet like
+    [sepoliafaucet.com](https://sepoliafaucet.com/).
 
-CLARITY is an open-source project, and we welcome contributions from the community. If you are a software engineer, a Web3 enthusiast, or simply someone who is passionate about the future of free and open information, we invite you to join us.
+### 5.2. Running the Application
+1.  **Clone the code:**
+    ```bash
+    git clone <repository-url>
+    cd clarity-app
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+3.  **Set up your environment:**
+    -   Create a `.env.local` file in the project root.
+    -   Add your Sepolia RPC URL from a service like Infura or Alchemy:
+        `VITE_ETHEREUM_RPC=https://sepolia.infura.io/v3/YOUR_INFURA_KEY`
+4.  **Start the app:**
+    ```bash
+    npm run dev
+    ```
+    The app will open at `http://localhost:5173`.
+
+### 5.3. Testing the Core Features
+1.  **Connect & Sign In:** Click "Connect Wallet" and sign the message. This proves
+    you own your wallet, without revealing personal data.
+2.  **Become a Journalist:** Go to Dashboard -> Identity. Click "Become a
+    Journalist" and approve the transaction in MetaMask. You now have an on-chain
+    identity!
+3.  **Publish Your First Article:** Go to Dashboard -> Drafts -> "Start New
+    Article". Write something and click "Publish". You will be asked to sign the
+    content hash, then approve the on-chain transaction. Your article is now
+    permanently on IPFS and the blockchain.
+4.  **Govern the Platform:** Go to the Governance tab. Create a proposal for the
+    community to vote on. Approve the transaction.
+
+## 6. License
+
+CLARITY is licensed under the MIT License. This is a permissive free software
+license, meaning you can do almost anything with the code, with very few
+restrictions.
+
+```
+MIT License
+
+Copyright (c) 2025 The CLARITY Project Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+## 7. A Call for Contributions
+
+We welcome contributions from developers, designers, translators, and security
+researchers. CLARITY is a public good, and its development is a community effort.
+
+### 7.1. Code Contributions
+1.  **Find an Issue:** Look for open issues on our GitHub repository, especially
+    those tagged `help-wanted` or `good-first-issue`.
+2.  **Fork & Branch:** Fork the repository and create a new branch for your feature
+    or bug fix. Use a descriptive name (e.g., `feat/add-dark-mode` or
+    `fix/header-alignment`).
+3.  **Develop:** Write clean, well-documented, and modular code. Follow the existing
+    coding style.
+4.  **Test:** Add unit tests for any new logic and ensure all existing tests pass.
+5.  **Submit a Pull Request (PR):** Open a PR against the `main` branch. Provide a
+    clear description of the changes and link to the relevant issue.
+
+### 7.2. Other Contributions
+-   **Translation:** Help us translate the platform into new languages.
+-   **Design:** Suggest UI/UX improvements.
+-   **Documentation:** Improve this guide or other documentation.
