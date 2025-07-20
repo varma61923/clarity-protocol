@@ -45,9 +45,6 @@ CLARITY is a set of smart contracts and data standards that, when used together,
 -   **`DAOController`:** A smart contract that manages the CLARITY DAO. It allows for the creation of on-chain proposals and the execution of their outcomes.
 -   **Future: Gasless Voting:** Integration with Snapshot will allow for off-chain, gasless voting, which will significantly reduce the friction of participating in governance.
 
-### 2.3. System Architecture & Data Flow Diagrams
-
-*(The ASCII diagrams from the previous version would be inserted here.)*
 
 ## 3. Engineering Roadmap & Future Work
 
