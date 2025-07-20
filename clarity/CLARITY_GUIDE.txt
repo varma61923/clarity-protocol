@@ -1,0 +1,235 @@
+
+################################################################################
+#
+# CLARITY: A Journalist's Guide to Uncensorable, Anonymous Publishing
+#
+# Version: 2.0 (The Genesis Guide)
+#
+# "No ads. No AI. No central control. Only truth. Only freedom. Only CLARITY."
+#
+################################################################################
+
+
+## 1. OUR MISSION: A PROMISE TO JOURNALISTS
+
+CLARITY was built for one reason: to protect truth. It empowers real journalists,
+whistleblowers, and reporters to publish immutable, anonymous, multilingual news
+on decentralized infrastructure with provable human authorship.
+
+It exists to defend free speech and resist systemic censorship—without ads,
+surveillance, coercion, centralized trust, or AI involvement.
+
+This guide explains the philosophy, the technology, and the path forward. It is
+written for journalists first, and developers second.
+
+
+## 2. PHILOSOPHY & GUARANTEES: WHAT THIS TECHNOLOGY MEANS FOR YOU
+
+We translate complex technology into simple, powerful guarantees.
+
+*   **Your Work is Permanent & Uncensorable.**
+    *   **How:** Articles are stored on the InterPlanetary File System (IPFS) and
+      their existence is recorded on a public blockchain (like Ethereum).
+    *   **The Guarantee:** No government, corporation, or individual can delete
+      your work. It does not live on a server that can be shut down; it lives
+      on a global, distributed network.
+
+*   **Your Identity is Protected.**
+    *   **How:** You sign in with a crypto wallet (Sign-In with Ethereum - SIWE).
+      You never need to provide an email, phone number, or real name.
+    *   **The Guarantee:** You can publish under a pseudonym, protecting you from
+      retaliation. Your on-chain identity is separate from your real-world
+      identity.
+
+*   **Your Authorship is Verifiable & Human.**
+    *   **How:** You can mint a `JournalistSBT` (a non-transferable NFT) to your
+      wallet, creating a trusted, on-chain identity. Every article is
+      cryptographically signed by your wallet.
+    *   **The Guarantee:** Readers can verify that an article was written by a
+      trusted journalist and has not been tampered with. We enforce a strict
+      "no AI" policy, and this signature proves human origin.
+
+*   **Your Reputation is Your Own.**
+    *   **How:** The `ReputationManager` smart contract tracks your contributions—
+      articles published, donations received, votes cast. This score is public
+      and tamper-proof.
+    *   **The Guarantee:** You build a portable, on-chain reputation based on the
+      quality of your work, not the whims of a platform's algorithm.
+
+*   **The Platform is Owned by its Users.**
+    *   **How:** The `DAOController` contract ensures that all platform rules and
+      disputes are handled by community vote.
+    *   **The Guarantee:** There is no central company making decisions. The
+      journalists and readers who use the platform are its owners.
+
+
+## 3. CURRENT STATUS: A FULLY FUNCTIONAL PROTOTYPE (TESTNET)
+
+As of this version, CLARITY is a complete end-to-end prototype. All core features
+are implemented and functional on a blockchain testnet (a free, experimental
+network).
+
+**What is working right now:**
+-   [x] **On-Chain Identity:** Minting Journalist SBTs.
+-   [x] **Decentralized Publishing:** The full hash -> sign -> upload to IPFS ->
+    register on-chain flow.
+-   [x] **On-Chain Reputation:** Reputation scores are updated by the smart
+    contract.
+-   [x] **On-Chain Governance:** Proposals can be created via the DAO contract.
+-   [x] **On-Chain Subscriptions:** Users can subscribe to authors on-chain.
+
+**What is next on the roadmap for mainnet deployment:**
+-   [ ] **Framework Migration:** Move from Vite to Next.js for performance and
+    server-level controls.
+-   [ ] **Subgraph Indexing:** Build a high-speed data retrieval layer with The Graph.
+-   [ ] **ZK Integration:** Implement optional zk-KYC for enhanced verification and
+    zk-donations for privacy.
+-   [ ] **Security Audits:** Full, independent security audits of all smart contracts.
+
+
+## 4. HOW TO SEE IT IN ACTION: A 15-MINUTE GUIDE
+
+Follow these steps to experience the full power of CLARITY on a testnet. No real
+money is required.
+
+### 4.1. Prerequisites
+-   **MetaMask:** Install the MetaMask browser extension.
+-   **Sepolia Testnet ETH:** Inside MetaMask, switch the network from "Ethereum
+    Mainnet" to "Sepolia". Get free test ETH from a faucet like
+    [sepoliafaucet.com](https://sepoliafaucet.com/).
+
+### 4.2. Running the Application
+1.  **Clone the code:**
+    ```bash
+    git clone <repository-url>
+    cd clarity-app
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+3.  **Set up your environment:**
+    -   Create a `.env.local` file in the project root.
+    -   Add your Sepolia RPC URL from a service like Infura or Alchemy:
+        `VITE_ETHEREUM_RPC=https://sepolia.infura.io/v3/YOUR_INFURA_KEY`
+4.  **Start the app:**
+    ```bash
+    npm run dev
+    ```
+    The app will open at `http://localhost:5173`.
+
+### 4.3. Testing the Core Features
+1.  **Connect & Sign In:** Click "Connect Wallet" and sign the message. This proves
+    you own your wallet, without revealing personal data.
+2.  **Become a Journalist:** Go to Dashboard -> Identity. Click "Become a
+    Journalist" and approve the transaction in MetaMask. You now have an on-chain
+    identity!
+3.  **Publish Your First Article:** Go to Dashboard -> Drafts -> "Start New
+    Article". Write something and click "Publish". You will be asked to sign the
+    content hash, then approve the on-chain transaction. Your article is now
+    permanently on IPFS and the blockchain.
+4.  **Govern the Platform:** Go to the Governance tab. Create a proposal for the
+    community to vote on. Approve the transaction.
+
+
+## 5. FOR DEVELOPERS: TECHNICAL DEEP DIVE
+
+This section contains the technical details for contributors.
+
+### 5.1. Smart Contract Management
+-   **Location:** `/contracts`
+-   **Compile:** `npx hardhat compile`
+-   **Test:** `npx hardhat test`
+-   **Deploy:**
+    1.  Add your deployer private key to `.env.local`:
+        `DEPLOYER_PRIVATE_KEY=YOUR_PRIVATE_KEY`
+    2.  Run: `npx hardhat run scripts/deploy.js --network sepolia`
+    3.  Update the deployed contract addresses in `src/services/apiClient.ts`.
+
+### 5.2. Debugging
+-   **Frontend:** Use browser DevTools. Check the console for RPC errors or reverted
+    transactions. Ensure MetaMask is on the correct network (Sepolia).
+-   **Contracts:** Use a block explorer like [sepolia.etherscan.io](https://sepolia.etherscan.io/)
+    to view transactions and contract state. Use `console.log` in Hardhat tests
+    for detailed debugging.
+
+
+## 6. HOW TO CONTRIBUTE
+
+We welcome contributions from developers, designers, translators, and security
+researchers. CLARITY is a public good, and its development is a community effort.
+
+### 6.1. Code Contributions
+1.  **Find an Issue:** Look for open issues on our GitHub repository, especially
+    those tagged `help-wanted` or `good-first-issue`.
+2.  **Fork & Branch:** Fork the repository and create a new branch for your feature
+    or bug fix. Use a descriptive name (e.g., `feat/add-dark-mode` or
+    `fix/header-alignment`).
+3.  **Develop:** Write clean, well-documented, and modular code. Follow the existing
+    coding style.
+4.  **Test:** Add unit tests for any new logic and ensure all existing tests pass.
+5.  **Submit a Pull Request (PR):** Open a PR against the `main` branch. Provide a
+    clear description of the changes and link to the relevant issue.
+
+### 6.2. Other Contributions
+-   **Translation:** Help us translate the platform into new languages.
+-   **Design:** Suggest UI/UX improvements.
+-   **Documentation:** Improve this guide or other documentation.
+
+
+## 7. LICENSE
+
+CLARITY is licensed under the MIT License. This is a permissive free software
+license, meaning you can do almost anything with the code, with very few
+restrictions.
+
+```
+MIT License
+
+Copyright (c) 2023 The CLARITY Project Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+
+## 8. PROJECT MAINTENANCE & GOVERNANCE
+
+CLARITY is not a company. It is a community-governed protocol. Decisions are
+made by the CLARITY DAO (Decentralized Autonomous Organization).
+
+-   **Core Maintainers:** A small group of core maintainers is responsible for
+    reviewing and merging code contributions to ensure quality and security.
+-   **Protocol Upgrades:** Any changes to the smart contracts or the core protocol
+    must be approved by a DAO vote.
+-   **Treasury Management:** The DAO controls the project treasury, which is funded
+    by a small, optional fee on donations.
+
+This model ensures that the platform remains true to its mission and is never
+co-opted by a central authority.
+
+
+## 9. CONCLUSION: THE FUTURE IS UNWRITTEN
+
+CLARITY is more than a platform; it is a public good. It is a tool for those who
+risk everything to tell the truth. By building this in the open, we invite
+journalists, developers, and advocates for freedom to join us.
+
+The code is the guarantee. The community is the safeguard. The truth is the mission.
+
+################################################################################

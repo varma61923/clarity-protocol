@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>CLARITY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              // Material 3 Dark Palette
+              dark: {
+                primary: '#5DD4FF',
+                'on-primary': '#003546',
+                'primary-container': '#004D64',
+                'on-primary-container': '#B8EAFF',
+                secondary: '#B1CBD7',
+                'on-secondary': '#1D333D',
+                'secondary-container': '#344A54',
+                'on-secondary-container': '#CDE7F3',
+                tertiary: '#C8C3E9',
+                'on-tertiary': '#322E4A',
+                'tertiary-container': '#484462',
+                'on-tertiary-container': '#E4DFFF',
+                error: '#FFB4AB',
+                'on-error': '#690005',
+                'error-container': '#93000A',
+                'on-error-container': '#FFDAD6',
+                background: '#191C1E',
+                'on-background': '#E2E2E5',
+                surface: '#111415',
+                'on-surface': '#E2E2E5',
+                'surface-variant': '#40484C',
+                'on-surface-variant': '#C0C8CC',
+                outline: '#8A9296',
+                'outline-variant': '#40484C',
+                shadow: '#000000',
+                scrim: '#000000',
+                'inverse-surface': '#E2E2E5',
+                'inverse-on-surface': '#2E3133',
+                'inverse-primary': '#006685',
+                'surface-dim': '#111415',
+                'surface-bright': '#373A3B',
+                'surface-container-lowest': '#0C0F10',
+                'surface-container-low': '#191C1E',
+                'surface-container': '#1E2022',
+                'surface-container-high': '#282B2C',
+                'surface-container-highest': '#333537',
+              },
+              // Material 3 Light Palette
+              light: {
+                primary: '#006685',
+                'on-primary': '#FFFFFF',
+                'primary-container': '#B8EAFF',
+                'on-primary-container': '#001F2A',
+                secondary: '#4C616B',
+                'on-secondary': '#FFFFFF',
+                'secondary-container': '#CDE7F3',
+                'on-secondary-container': '#071E27',
+                tertiary: '#605C7C',
+                'on-tertiary': '#FFFFFF',
+                'tertiary-container': '#E4DFFF',
+                'on-tertiary-container': '#1C1935',
+                error: '#BA1A1A',
+                'on-error': '#FFFFFF',
+                'error-container': '#FFDAD6',
+                'on-error-container': '#410002',
+                background: '#FBFCFE',
+                'on-background': '#191C1E',
+                surface: '#F8F9FB',
+                'on-surface': '#191C1E',
+                'surface-variant': '#DCE4E8',
+                'on-surface-variant': '#40484C',
+                outline: '#70787C',
+                'outline-variant': '#C0C8CC',
+                shadow: '#000000',
+                scrim: '#000000',
+                'inverse-surface': '#2E3133',
+                'inverse-on-surface': '#F0F1F3',
+                'inverse-primary': '#5DD4FF',
+                'surface-dim': '#D8DADD',
+                'surface-bright': '#F8F9FB',
+                'surface-container-lowest': '#FFFFFF',
+                'surface-container-low': '#F2F4F5',
+                'surface-container': '#ECEEEF',
+                'surface-container-high': '#E6E8EA',
+                'surface-container-highest': '#E1E3E4',
+              },
+              'brand-primary': '#00A3FF',
+              'brand-secondary': '#00E0C7',
+              'accent-red': '#FF4D4D',
+              'accent-green': '#39D98A',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['Roboto Mono', 'monospace'],
+            },
+            fontSize: {
+              'display-lg': ['57px', { lineHeight: '64px', letterSpacing: '-0.25px' }],
+              'display-md': ['45px', { lineHeight: '52px' }],
+              'display-sm': ['36px', { lineHeight: '44px' }],
+              'headline-lg': ['32px', { lineHeight: '40px' }],
+              'headline-md': ['28px', { lineHeight: '36px' }],
+              'headline-sm': ['24px', { lineHeight: '32px' }],
+              'title-lg': ['22px', { lineHeight: '28px' }],
+              'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0.15px', fontWeight: '500' }],
+              'title-sm': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '500' }],
+              'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '500' }],
+              'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.5px', fontWeight: '500' }],
+              'label-sm': ['11px', { lineHeight: '16px', letterSpacing: '0.5px', fontWeight: '500' }],
+              'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0.5px' }],
+              'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0.25px' }],
+              'body-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.4px' }],
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-fadeIn {
+        animation: fadeIn 0.4s ease-in-out;
+      }
+      /* Tiptap Editor Styles */
+      .ProseMirror {
+        padding: 1rem;
+        min-height: 300px;
+        outline: none;
+      }
+      .ProseMirror > * + * {
+        margin-top: 0.75em;
+      }
+      /* Glossary Styles */
+      .glossary-term {
+        text-decoration: underline dotted;
+        text-decoration-color: var(--tw-prose-links);
+        text-underline-offset: 4px;
+        cursor: help;
+        position: relative;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "framer-motion": "https://esm.sh/framer-motion@^11.3.8",
+    "ethers": "https://esm.sh/ethers@^6.13.1",
+    "siwe": "https://esm.sh/siwe@^2.3.2",
+    "@tiptap/core": "https://esm.sh/@tiptap/core@2.5.2",
+    "@tiptap/react": "https://esm.sh/@tiptap/react@2.5.2",
+    "@tiptap/starter-kit": "https://esm.sh/@tiptap/starter-kit@2.5.2",
+    "crypto-js": "https://esm.sh/crypto-js@4.2.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="h-full bg-light-background dark:bg-dark-background text-light-on-background dark:text-dark-on-background font-sans transition-colors duration-300">
+    <div id="root" class="h-full"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
